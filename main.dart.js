@@ -102976,7 +102976,7 @@ e=J
 d=m
 c=A
 s=12
-return A.v(new A.js(A.eJ(new A.b6(j),null)).k8(b,"standard",a),$async$t4)
+return A.v(new A.js(A.eJ(new A.b6(j),null)).k8(b,"student",a),$async$t4)
 case 12:e.li(d,c.ar(["image",a3],t.N,t.z))
 case 8:k=n.a
 k=A.ce(k,k.gcg().al("student")).av(a0)

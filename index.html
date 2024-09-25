@@ -29,14 +29,63 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>M&R Quiz Admin Panel</title>
+  <title>Study Verse Quiz Admin</title>
   <link rel="manifest" href="manifest.json">
 
   <!-- <video controls>
     <source type="video/webm" src="data:video/webm;base64,GkXfowEAAAAAAAAfQoaBAUL3gQFC8......jVOrhB9DtnVTrIMQTPc=">
     <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBtcDQyAAAAAG1wNDJpc29....../l/L+X8v5AAAAMgfDg==">
 </video> -->
+
+<style>
+  /* Add some basic styling to our loading animation */
+  .loader {
+    
+width: 48px;
+height: 48px;
+border-radius: 50%;
+display: inline-block;
+border-top: 4px solid #FFF;
+border-right: 4px solid transparent;
+box-sizing: border-box;
+animation: rotation 2s linear infinite;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.parent-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.loader::after {
+content: '';  
+box-sizing: border-box;
+position: absolute;
+left: 0;
+top: 0;
+width: 48px;
+height: 48px;
+border-radius: 50%;
+border-left: 4px solid #0a0735;
+border-bottom: 4px solid transparent;
+animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+} 
+
+</style>
+
 </head>
+
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
@@ -60,7 +109,25 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-<body>
+<!-- <body>
   <script src="flutter_bootstrap.js" async></script>
+</body> -->
+<body>
+  <!-- Add a div for our loading animation -->
+  <div class="loader">
+    <div></div>
+  </div>
+
+  <!-- Remove the async attribute from the script tag so that the script is executed before the loading animation is removed -->
+  <script src="flutter_bootstrap.js"></script>
+
+  <!-- Add a script to remove the loading animation once the app is loaded -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.loading-animation').remove();
+      }, 10000); // 10000 milliseconds = 10 seconds
+    });
+  </script>
 </body>
 </html>
